@@ -2,4 +2,8 @@
     <string name="app_name">MoviesApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_toast">Ha ocurrido un error</string>
+    <string name="date_details_format">Fecha de estreno: %1$s </string>
+    <string name="language_details_format">Idioma Original: %1$s </string>
+    <string name="popularity_details_format">Popularidad: %1$s </string>
 </resources>

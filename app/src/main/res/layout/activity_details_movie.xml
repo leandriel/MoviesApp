@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="60dp"
     tools:context=".ui.details.DetailsMovieActivity">
 
     <TextView
-        android:layout_marginTop="60dp"
-        android:id="@+id/tv_tittle"
+        android:id="@+id/tv_title"
+        android:textStyle="bold"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tittle"
+        tools:text="Title"
         app:layout_constraintBottom_toTopOf="@id/movie_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,52 +22,50 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/movie_image"
         android:layout_marginTop="20dp"
-        android:layout_width="150dp"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintWidth_percent="0.4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_tittle" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
     <TextView
         android:id="@+id/tv_genre"
-        android:text="Genero: "
+        style="@style/TextAppearance.AppCompat.Body1"
+        tools:text="Genero: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/movie_image" />
 
     <TextView
         android:id="@+id/tv_language"
-        android:text="Idioma original: "
+        style="@style/TextAppearance.AppCompat.Body1"
+        tools:text="Idioma original: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_genre" />
 
     <TextView
         android:id="@+id/tv_popularity"
-        android:text="Popularidad: "
+        style="@style/TextAppearance.AppCompat.Body1"
+        tools:text="Popularidad: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_language" />
 
     <TextView
         android:id="@+id/tv_date"
-        android:text="Fecha de estreno: "
+        style="@style/TextAppearance.AppCompat.Body1"
+        tools:text="Fecha de estreno: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_popularity" />

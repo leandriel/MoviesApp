@@ -12,6 +12,8 @@ interface APIService {
     suspend fun getPopularMovies(@Query("api_key") apiKey: String = "e2bdddd0e8d2f2615afcaab831807062"): Response<PopularMovieDTO>
 
     @GET("movie/{movie_id}")
-    suspend fun getMovieDetails(@Path("movie_id") id: Int): Movie
+    suspend fun getMovieDetails(
+        @Path("movie_id") id: Int,
+        @Query("api_key") apiKey: String = "e2bdddd0e8d2f2615afcaab831807062") : Response<Movie>
 }
 
