@@ -29,7 +29,6 @@ class PopularViewModel(private val repository: PopularRepository) : ViewModel(){
         viewModelScope.launch {
             _isLoading.value = true
             repository.getPopularMovies().let { response ->
-                //     withContext(Dispatchers.Main){
                 if (response.isSuccessful) {
                     _isError.value = false
                     _movies.value = response.body()?.let {

@@ -7,67 +7,80 @@
     android:padding="60dp"
     tools:context=".ui.details.DetailsMovieActivity">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:textStyle="bold"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Title"
-        app:layout_constraintBottom_toTopOf="@id/movie_image"
+    <include
+        android:id="@+id/i_progress_bar"
+        layout="@layout/loading" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/movie_image"
-        android:layout_marginTop="20dp"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.3"
-        app:layout_constraintWidth_percent="0.4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/movie_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
 
-    <TextView
-        android:id="@+id/tv_genre"
-        style="@style/TextAppearance.AppCompat.Body1"
-        tools:text="Genero: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movie_image" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/movie_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintWidth_percent="0.4" />
 
-    <TextView
-        android:id="@+id/tv_language"
-        style="@style/TextAppearance.AppCompat.Body1"
-        tools:text="Idioma original: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_genre" />
+        <TextView
+            android:id="@+id/tv_genre"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_image"
+            tools:text="Genero: " />
 
-    <TextView
-        android:id="@+id/tv_popularity"
-        style="@style/TextAppearance.AppCompat.Body1"
-        tools:text="Popularidad: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_language" />
+        <TextView
+            android:id="@+id/tv_language"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_genre"
+            tools:text="Idioma original: " />
 
-    <TextView
-        android:id="@+id/tv_date"
-        style="@style/TextAppearance.AppCompat.Body1"
-        tools:text="Fecha de estreno: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_popularity" />
+        <TextView
+            android:id="@+id/tv_popularity"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_language"
+            tools:text="Popularidad: " />
 
+        <TextView
+            android:id="@+id/tv_date"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_popularity"
+            tools:text="Fecha de estreno: " />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

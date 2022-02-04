@@ -2,6 +2,7 @@ package com.leandroid.system.moviesapp.ui.details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.leandroid.system.moviesapp.R
 import com.leandroid.system.moviesapp.data.ComponentUtils.Companion.showToast
@@ -35,16 +36,14 @@ class DetailsMovieActivity : AppCompatActivity() {
     private fun subscribeLiveData(){
         with(viewModel){
             isLoading.observe(this@DetailsMovieActivity) {
-                if(it){
-                    //mostrar loadign
-                } else {
-                    //ocultar loading
-                }
+                handlerProgressBar(it)
+                handlerContainerVisibility(!it)
             }
 
             isError.observe(this@DetailsMovieActivity){
                 if(it){
                     showToast(this@DetailsMovieActivity,getString(R.string.error_toast))
+                    finish()
                 }
             }
 
@@ -59,10 +58,14 @@ class DetailsMovieActivity : AppCompatActivity() {
             }
         }
     }
+    private fun handlerProgressBar(show: Boolean) {
+        binding.iProgressBar.progressBar.visibility = if (show) View.VISIBLE else View.GONE
+    }
 
+    private fun handlerContainerVisibility(show: Boolean){
+        binding.clContainer.visibility = if (show) View.VISIBLE else View.GONE
+    }
     companion object {
         const val ID_MOVIE = "id_movie"
     }
-
-
 }

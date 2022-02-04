@@ -23,7 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PopularFragment : Fragment(),PopularMovieListener {
+class PopularFragment : Fragment(), PopularMovieListener {
     private lateinit var binding: FragmentPopularBinding
     private lateinit var adapterPopular: PopularMovieAdapter
     private val repository = PopularRepository(APIManager())
@@ -45,29 +45,24 @@ class PopularFragment : Fragment(),PopularMovieListener {
         return binding.root
     }
 
-    private fun initViewModel(){
+    private fun initViewModel() {
         PopularViewModelFactory(repository).run {
             viewModel = ViewModelProvider(this@PopularFragment, this)[PopularViewModel::class.java]
         }
     }
 
-    private fun subscribeLiveData(){
-        with(viewModel){
+    private fun subscribeLiveData() {
+        with(viewModel) {
             getPopularMovies()
             isLoading.observe(viewLifecycleOwner) {
-               if(it){
-                   //mostrar loadign
-               } else {
-                   //ocultar loading
-               }
+                handlerProgressBar(it)
+                handlerRecyclerVisibility(!it)
             }
-
-            isError.observe(viewLifecycleOwner){
-                if(it){
+            isError.observe(viewLifecycleOwner) {
+                if (it) {
                     showError()
                 }
             }
-
             movies.observe(viewLifecycleOwner) {
                 adapterPopular.setMovies(it)
             }
@@ -75,7 +70,7 @@ class PopularFragment : Fragment(),PopularMovieListener {
     }
 
     private fun showError() {
-        showToast(requireContext(),getString(R.string.error_toast))
+        showToast(requireContext(), getString(R.string.error_toast))
     }
 
     private fun initRecyclerView() {
@@ -84,6 +79,14 @@ class PopularFragment : Fragment(),PopularMovieListener {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adapterPopular
         }
+    }
+
+    private fun handlerProgressBar(show: Boolean) {
+        binding.iProgressBar.progressBar.visibility = if (show) View.VISIBLE else View.GONE
+    }
+
+    private fun handlerRecyclerVisibility(show: Boolean){
+        binding.moviesRecycler.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     override fun onClick(id: Int) {
